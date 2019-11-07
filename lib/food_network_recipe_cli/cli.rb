@@ -35,6 +35,10 @@ class FoodNetworkRecipeCli::CLI
         puts "------------------------------------------------------------------------------------------------------"
     end
 
+    def goodbye
+        puts "Thanks for using!"
+    end
+
     def menu
         input = nil
 
@@ -57,7 +61,7 @@ class FoodNetworkRecipeCli::CLI
             elsif input == "list"
                 list_recipes
             elsif input == "exit"
-                #goodbye
+                goodbye
             elsif input.to_i > 0
                 # checks to see if index is valid
                 # if recipe index is valid, checks to see if it was already scraped, if not, scrapes details
