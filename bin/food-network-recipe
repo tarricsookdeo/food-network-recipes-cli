@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/food_network_recipe_cli'
+
+FoodNetworkRecipeCli::CLI.new.call
