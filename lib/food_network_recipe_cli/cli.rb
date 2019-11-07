@@ -28,11 +28,16 @@ class FoodNetworkRecipeCli::CLI
     def list_recipes
         @recipes = FoodNetworkRecipeCli::Recipe.all
 
-        puts "------------------------------------------------------------------------------------------------------"
-        @recipes.each.with_index(1) { |recipe, i|
-            puts "#{i}. #{recipe.name} - #{recipe.total_time}"
-        }
-        puts "------------------------------------------------------------------------------------------------------"
+        if @recipes == []
+            puts "There are currently no recipes to list. Please search a recipe first."
+        else
+            puts "------------------------------------------------------------------------------------------------------"
+            @recipes.each.with_index(1) { |recipe, i|
+                puts "#{i}. #{recipe.name} - #{recipe.total_time}"
+            }
+            puts "------------------------------------------------------------------------------------------------------"
+        end
+
     end
 
     def goodbye
