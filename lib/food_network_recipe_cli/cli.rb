@@ -26,7 +26,7 @@ class FoodNetworkRecipeCli::CLI
     end
 
     def list_recipes
-        @recipes = FoodNetworkRecipeCli::Recipe.find_by_search_term(@search_term)
+        @recipes = FoodNetworkRecipeCli::Recipe.all
 
         puts "------------------------------------------------------------------------------------------------------"
         @recipes.each.with_index(1) { |recipe, i|
