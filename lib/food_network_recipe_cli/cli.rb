@@ -26,13 +26,13 @@ class FoodNetworkRecipeCli::CLI
     end
 
     def list_recipes
-        @recipes = FoodNetworkRecipeCli::Recipe.all
+        recipes = FoodNetworkRecipeCli::Recipe.all
 
-        if @recipes == []
+        if recipes == []
             puts "There are currently no recipes to list. Please search a recipe first."
         else
             puts "------------------------------------------------------------------------------------------------------"
-            @recipes.each.with_index(1) { |recipe, i|
+            recipes.each.with_index(1) { |recipe, i|
                 puts "#{i}. #{recipe.name} - #{recipe.total_time}"
             }
             puts "------------------------------------------------------------------------------------------------------"
@@ -68,9 +68,12 @@ class FoodNetworkRecipeCli::CLI
             elsif input == "exit"
                 goodbye
             elsif input.to_i > 0
-                # checks to see if index is valid
-                # if recipe index is valid, checks to see if it was already scraped, if not, scrapes details
-                # displays recipe details
+                if input.to_i <= FoodNetworkRecipeCli::Recipe.all.size
+                    recipe = FoodNetworkRecipeCli::Recipe.all[input.to_i-1]
+                    puts "#{recipe.name} - #{recipe.total_time}"
+                else
+                    puts "Invalid index."
+                end
             else
                 puts "Invalid command. Please type a valid command."
             end
