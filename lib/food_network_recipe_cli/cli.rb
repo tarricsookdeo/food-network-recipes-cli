@@ -22,7 +22,17 @@ class FoodNetworkRecipeCli::CLI
         @search_term = gets
 
         FoodNetworkRecipeCli::Scraper.search_url_generator(@search_term)
-        puts "Getting recipies for #{@search_term}"
+        puts "Getting recipes for #{@search_term}"
+    end
+
+    def list_recipes
+        @recipes = FoodNetworkRecipeCli::Recipe.find_by_search_term(@search_term)
+
+        puts "------------------------------------------------------------------------------------------------------"
+        @recipes.each.with_index(1) { |recipe, i|
+            puts "#{i}. #{recipe.name} - #{recipe.total_time}"
+        }
+        puts "------------------------------------------------------------------------------------------------------"
     end
 
     def menu
@@ -45,7 +55,7 @@ class FoodNetworkRecipeCli::CLI
             if input == "search"
                 search
             elsif input == "list"
-                #list
+                list_recipes
             elsif input == "exit"
                 #goodbye
             elsif input.to_i > 0
