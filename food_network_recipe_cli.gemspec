@@ -1,23 +1,18 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "food_network_recipe_cli/version"
+require "food_network_recipies/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "food_network_recipe_cli"
-  spec.version       = FoodNetworkRecipeCli::VERSION
+  spec.name          = "food_network_recipies"
+  spec.version       = FoodNetworkRecipies::VERSION
   spec.authors       = ["Tarric Sookdeo"]
   spec.email         = ["tarricsookdeo@outlook.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Food Network Recipies CLI"
+  spec.description   = "Provides recipe search via keywords."
+  spec.homepage      = "https://github.com/tarricsookdeo/food-network-cli-app"
   spec.license       = "MIT"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
