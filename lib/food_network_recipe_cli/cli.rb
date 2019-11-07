@@ -17,6 +17,14 @@ class FoodNetworkRecipeCli::CLI
         DOC
     end
 
+    def search
+        print "Enter a keyword you would like to search for (eg. chicken, stew, or beef burger): "
+        @search_term = gets
+
+        FoodNetworkRecipeCli::Scraper.search_url_generator(@search_term)
+        puts "Getting recipies for #{@search_term}"
+    end
+
     def menu
         input = nil
 
@@ -35,7 +43,7 @@ class FoodNetworkRecipeCli::CLI
             input = gets.strip.downcase
 
             if input == "search"
-                #search
+                search
             elsif input == "list"
                 #list
             elsif input == "exit"
