@@ -1,6 +1,6 @@
 class FoodNetworkRecipeCli::Recipe
 
-    attr_accessor :name, :total_time, :url, :search_term
+    attr_accessor :name, :total_time, :url, :ingredients, :directions
     @@all = []
 
     def initialize
@@ -15,9 +15,9 @@ class FoodNetworkRecipeCli::Recipe
         recipe.search_term = recipe_hash["search_term"]
     end
 
-    def self.find_by_search_term(search_term)
-        @@all.collect { |r| r.search_term == search_term }
-    end
+    # def self.find_by_search_term(search_term)
+    #     @@all.collect { |r| r.search_term == search_term }
+    # end
 
     def self.all
         @@all

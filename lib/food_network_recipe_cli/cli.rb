@@ -37,7 +37,26 @@ class FoodNetworkRecipeCli::CLI
             }
             puts "------------------------------------------------------------------------------------------------------"
         end
+    end
 
+    def display_recipe(recipe)
+        puts "Name: #{recipe.name}"
+        puts "Total time: #{recipe.total_time}"
+
+        puts ""
+
+        puts "Ingredients:"
+        recipe.ingredients.each.with_index(1) { |ingredient, i|
+            puts "#{i}. #{ingredient}"
+        }
+
+        puts ""
+
+        puts "Directions:"
+        recipe.directions.each.with_index(1) { |direction, i|
+            puts "#{i}. #{direction}"
+            puts ""
+        }
     end
 
     def goodbye
@@ -70,7 +89,8 @@ class FoodNetworkRecipeCli::CLI
             elsif input.to_i > 0
                 if input.to_i <= FoodNetworkRecipeCli::Recipe.all.size
                     recipe = FoodNetworkRecipeCli::Recipe.all[input.to_i-1]
-                    puts "#{recipe.name} - #{recipe.total_time}"
+                    FoodNetworkRecipeCli::Scraper.scrape_recipe(recipe) if !recipe.ingredients
+                    display_recipe(recipe)
                 else
                     puts "Invalid index."
                 end

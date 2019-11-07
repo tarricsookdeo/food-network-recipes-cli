@@ -27,4 +27,21 @@ class FoodNetworkRecipeCli::Scraper
             FoodNetworkRecipeCli::Recipe.new_from_scrape(new_recipe)
         end
     end
+
+    def self.scrape_recipe(recipe)
+        doc = Nokogiri::HTML(open("https://#{recipe.url}"))
+        recipe.ingredients = []
+        recipe.directions = []
+        
+        ingredients = doc.search(".o-Ingredients__a-Ingredient")
+        directions = doc.search(".o-Method__m-Step")
+
+        ingredients.each do |ingredient|
+            recipe.ingredients << ingredient.text.strip
+        end
+
+        directions.each do |direction|
+            recipe.directions << direction.text.strip
+        end
+    end
 end
