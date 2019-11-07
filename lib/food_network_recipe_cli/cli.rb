@@ -2,6 +2,7 @@ class FoodNetworkRecipeCli::CLI
 
     def call
         welcome
+        menu
     end
 
     def welcome
@@ -9,11 +10,43 @@ class FoodNetworkRecipeCli::CLI
         ------------------------------------------------------------------------------------------------------
         GREETING:
 
-        Hello from The Food Network Recipies CLI! In this CLI app, you will be able to search for
-        recipies using a keyword such as 'chicken', then see a list of recipies featured on The Food Network's
-        website. See one you like? you can then request more details on the recipie! Lets get started!
+        Hello from The Food Network Recipes CLI! In this CLI app, you will be able to search for
+        recipes using a keyword such as 'chicken', then see a list of recipes featured on The Food Network's
+        website. See one you like? you can then request more details on the recipe! Lets get started!
         ------------------------------------------------------------------------------------------------------
         DOC
     end
 
+    def menu
+        input = nil
+
+        while input != "exit"
+            puts <<~DOC
+            ------------------------------------------------------------------------------------------------------
+            MENU:
+
+            Type 'search' to use a search term to lookup recipes.
+            Type the number of the recipe you would like more info on.
+            Type 'list' to list recipes.
+            Type 'exit' to exit application.
+            ------------------------------------------------------------------------------------------------------
+            DOC
+
+            input = gets.strip.downcase
+
+            if input == "search"
+                #search
+            elsif input == "list"
+                #list
+            elsif input == "exit"
+                #goodbye
+            elsif input.to_i > 0
+                # checks to see if index is valid
+                # if recipe index is valid, checks to see if it was already scraped, if not, scrapes details
+                # displays recipe details
+            else
+                puts "Invalid command. Please type a valid command."
+            end
+        end
+    end
 end
