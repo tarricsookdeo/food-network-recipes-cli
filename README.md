@@ -26,7 +26,7 @@ To run the application, run
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/food_network_recipe_cli.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tarricsookdeo/food_network_recipe_cli.
 
 ## License
 
