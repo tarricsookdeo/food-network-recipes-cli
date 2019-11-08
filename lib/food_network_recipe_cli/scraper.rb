@@ -23,7 +23,6 @@ class FoodNetworkRecipeCli::Scraper
             new_recipe["name"] = recipe.search(".m-MediaBlock__a-HeadlineText").text
             new_recipe["total_time"]= recipe.search("dd").text
             new_recipe["url"] = recipe.search(".m-MediaBlock__a-Headline a").attr("href").value.gsub("//", "")
-            new_recipe["search_term"] = search_term
             FoodNetworkRecipeCli::Recipe.new_from_scrape(new_recipe)
         end
     end

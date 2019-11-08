@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-# require_relative '../lib/food_network_recipe_cli'
 require_relative '../config/env'
 
 FoodNetworkRecipeCli::CLI.new.call
