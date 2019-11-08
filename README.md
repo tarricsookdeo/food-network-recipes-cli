@@ -1,24 +1,21 @@
 # FoodNetworkRecipeCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/food_network_recipe_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the Food Network Recipe CLI App! In this CLI application, you will be able to lookup recipes featured on the Food Network website (https://www.foodnetwork.com/) using keywords. If you find a recipe you like, you can see more details on it such as ingredients and directions!
 
 ## Installation
 
-Add this line to your application's Gemfile:
+### Required Dependancies
+1. open-uri
+2. nokogiri
 
 ```ruby
-gem 'food_network_recipe_cli'
+gem install nokogiri
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install food_network_recipe_cli
+After installing dependancies, run
+```ruby
+bundle
+```
 
 ## Usage
 
