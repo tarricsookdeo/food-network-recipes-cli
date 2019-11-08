@@ -82,6 +82,7 @@ class FoodNetworkRecipeCli::CLI
 
             if input == "search"
                 search
+                list_recipes
             elsif input == "list"
                 list_recipes
             elsif input == "exit"
